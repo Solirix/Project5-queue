@@ -7,21 +7,22 @@
 #include <iostream>
 #include <string>
 
-#define ROWS 6
-#define COLS 6
+#define ROWS 7
+#define COLS 7
 
 int main(void){
     // create a 2D graph of names and their connections
     int graph[ROWS][COLS] = {
-        {1, 0, 0, 1, 1, 0},
-        {0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0}
+        {0, 1, 1, 0, 0, 0, 0},
+        {1, 0, 0, 0, 1, 0, 0},
+        {1, 0, 0, 1, 1, 0, 0},
+        {0, 0, 1, 0, 0, 1, 0},
+        {0, 1, 1, 0, 0, 1, 0},
+        {0, 0, 0, 1, 1, 0, 1},
+        {0, 0, 0, 0, 0, 1, 0}
     };
 
-    char VertexNames[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
+    std::string VertexNames[7] = {"joe", "eva", "taj", "chen", "lily", "jun", "ken"};
 
     // print the graph
     std::cout << "Graph:" << std::endl;
