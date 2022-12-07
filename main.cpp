@@ -23,5 +23,14 @@ int main(void){
 
     char VertexNames[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
 
+    // print the graph
+    std::cout << "Graph:" << std::endl;
+    for(int i = 0; i < ROWS; i++){
+        for(int j = 0; j < COLS; j++){
+            std::cout << graph[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
 return 0;
 }
