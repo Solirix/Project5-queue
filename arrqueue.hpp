@@ -8,7 +8,7 @@
    ArrQueClass shown below which is a subclass of QueBaseClass.
 */
 
-#include "queue.h"
+#include "queue.hpp"
 
 
 const int QueueMax = 100;
