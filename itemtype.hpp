@@ -22,7 +22,7 @@
 using namespace std;
 
 
-typedef float ItemType;
+typedef int ItemType;
 
 #endif
 

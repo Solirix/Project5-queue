@@ -11,6 +11,7 @@
 #define ROWS 7
 #define COLS 7
 
+void userChoice(int userInput);
 void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemType startVertex);
 
 int main(void){
@@ -34,11 +35,19 @@ int main(void){
     std::cout << "0 = joe, 1 = eva, 2 = taj, 3 = chen, 4 = lily, 5 = jun, 6 = ken\n";
     std::cin >> userInput;
 
-    
 
-    breadthFirstSearch(graph, vertexNames, userInput);
+    // while (!queue.Empty()) {
+        
+    //     queue.Insert(userInput);
+    //     queue.Remove(userInput); 
+    // }
 
 
+
+
+userChoice(userInput);
+
+breadthFirstSearch(graph, vertexNames, userInput);
 
 
 
@@ -52,15 +61,17 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
     //array of distances between vertices
     int distances[ROWS] = {0, 0, 0, 0, 0, 0, 0};
     // create a visited array
-    bool visited[7] = {false};
-    int tempIndex = 0;
+    bool visited[7] = {false}; 
 
-
+    
 
     //set currentVertex equal to startVertex
     currentVertex = startVertex;
     // enqueue the start vertex
     queue.Insert(startVertex);
+
+    //startVertex has a distance of 0 from iteslf
+    distances[currentVertex] = 0;
 
     // mark the start vertex as visited
     visited[currentVertex] = true;
@@ -72,8 +83,7 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
         // dequeue the front vertex
         queue.Remove(startVertex);
 
-        // print the front vertex
-        std::cout << vertexNames[currentVertex] << "'s ";
+        
 
         // for each vertex adjacent to the front vertex
         for(int i = 0; i < ROWS; i++){
@@ -86,48 +96,43 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
                 visited[i] = true;
 
                 // distance between the new vertex and the start vertex
-                distances[i] = distances[currentVertex] + 1;
-                tempIndex = startVertex;
-                std::cout << "Distance from " << vertexNames[tempIndex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
+                distances[i] = distances[currentVertex] + 1; 
+                std::cout << "Distance from " << vertexNames[startVertex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
+
+                // output vertices 2 away from the start vertex
+                if(distances[i] == 2){
+                    std::cout << vertexNames[i] << " is 2 away from " << vertexNames[startVertex] << std::endl;
+                }
             }
         }
     }
 } 
 
-//    {
-//    ArrQueClass Queue;
-//    float Num;
-//    char Choice;
-
-//    Menu();
-//    cout << "Enter the letter for your choice: ";
-//    Choice = GetChoice();
-
-//    while (Choice != 'Q')
-//       {
-//       if (Choice == 'I')
-//          {
-//          cout << "Enter the float to insert into the queue: ";
-//          cin >> Num;
-//          Queue.Insert(Num);
-//          }
-//       else if (Choice == 'R')
-//          {
-//          Queue.Remove(Num);
-//          cout << "The number removed was: " << Num << endl;
-//          }
-//       else if (Choice == 'E')
-//          {
-//          if (Queue.Empty())
-//             cout << "The queue is empty" << endl;
-//          else
-//             cout << "The queue is not empty" << endl;
-//          }
-//       else if (Choice != 'Q')
-//          cout << "Invalid Choice. You must use I, R, E, or Q." << endl;
-
-//       Menu();
-//       cout << "Enter the letter for your choice: ";
-//       Choice = GetChoice();
-//       }
-//    }
+void userChoice(int userInput) {
+    switch (userInput) {
+        case 0:
+            std::cout << "Searching for nodes adjacent to joe and calculating distance...\n";
+            break;
+        case 1:
+            std::cout << "Searching for nodes adjacent to eva and calculating distance...\n";
+            break;
+        case 2:
+            std::cout << "Searching for nodes adjacent to taj and calculating distance...\n";
+            break;
+        case 3:
+            std::cout << "Searching for nodes adjacent to chen and calculating distance...\n";
+            break;
+        case 4:
+            std::cout << "Searching for nodes adjacent to lilly and calculating distance...\n";
+            break;
+        case 5:
+            std::cout << "Searching for nodes adjacent to jun and calculating distance...\n";
+            break;
+        case 6:
+            std::cout << "Searching for nodes adjacent to ken and calculating distance...\n";
+            break;
+        default:
+            std::cout << "Invalid input\n";
+            break;
+    }
+}
