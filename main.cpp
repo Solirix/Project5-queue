@@ -34,6 +34,8 @@ int main(void){
     std::cout << "0 = joe, 1 = eva, 2 = taj, 3 = chen, 4 = lily, 5 = jun, 6 = ken\n";
     std::cin >> userInput;
 
+    
+
     breadthFirstSearch(graph, vertexNames, userInput);
 
 
@@ -51,6 +53,7 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
     int distances[ROWS] = {0, 0, 0, 0, 0, 0, 0};
     // create a visited array
     bool visited[7] = {false};
+    int tempIndex = 0;
 
 
 
@@ -84,7 +87,8 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
 
                 // distance between the new vertex and the start vertex
                 distances[i] = distances[currentVertex] + 1;
-                std::cout << "Distance from " << vertexNames[startVertex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
+                tempIndex = startVertex;
+                std::cout << "Distance from " << vertexNames[tempIndex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
             }
         }
     }
