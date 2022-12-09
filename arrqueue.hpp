@@ -22,6 +22,7 @@ class ArrQueClass: public QueBaseClass
       bool Empty(void) const;
       void Insert(const ItemType & Item);
       void Remove(ItemType & Item);
+      void upNext(int Item);
    private:
       void Advance(int & Index);
       QueueArrayType Info;

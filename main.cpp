@@ -11,7 +11,7 @@
 #define ROWS 7
 #define COLS 7
 
-void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], int startVertex);
+void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemType startVertex);
 
 int main(void){
     int userInput = 0;
@@ -30,17 +30,65 @@ int main(void){
     std::string vertexNames[7] = {"joe", "eva", "taj", "chen", "lily", "jun", "ken"};
 
 
+    std::cout << "Enter a number between 0 and 6 to start the breadth first search: \n";
+    std::cout << "0 = joe, 1 = eva, 2 = taj, 3 = chen, 4 = lily, 5 = jun, 6 = ken\n";
+    std::cin >> userInput;
+
+    breadthFirstSearch(graph, vertexNames, userInput);
+
+
+
+
 
 return 0;
 }
 
+void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemType startVertex){
+    // create a queue and current vertex variable
+    ArrQueClass queue;
+    int currentVertex = 0;
+    //array of distances between vertices
+    int distances[ROWS] = {0, 0, 0, 0, 0, 0, 0};
+    // create a visited array
+    bool visited[7] = {false};
 
 
 
+    //set currentVertex equal to startVertex
+    currentVertex = startVertex;
+    // enqueue the start vertex
+    queue.Insert(startVertex);
 
+    // mark the start vertex as visited
+    visited[currentVertex] = true;
 
+    // while the queue is not empty
+    while(!queue.Empty()){
+        //set currentVertex equal to the front vertex
+        queue.upNext(currentVertex);
+        // dequeue the front vertex
+        queue.Remove(startVertex);
 
+        // print the front vertex
+        std::cout << vertexNames[currentVertex] << " ";
 
+        // for each vertex adjacent to the front vertex
+        for(int i = 0; i < ROWS; i++){
+            // if the vertex is not visited
+            if(graph[currentVertex][i] == 1 && visited[i] == false){
+                // enqueue the vertex
+                queue.Insert(i);
+
+                // mark the vertex as visited
+                visited[i] = true;
+
+                // distance between the new vertex and the start vertex
+                distances[i] = distances[currentVertex] + 1;
+                std::cout << "Distance from " << vertexNames[startVertex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
+            }
+        }
+    }
+} 
 
 //    {
 //    ArrQueClass Queue;
