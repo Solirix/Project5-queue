@@ -11,7 +11,7 @@
 #include "queue.hpp"
 
 
-const int QueueMax = 100;
+const int QueueMax = 7;
 
 typedef ItemType QueueArrayType[QueueMax];
 
@@ -22,7 +22,7 @@ class ArrQueClass: public QueBaseClass
       bool Empty(void) const;
       void Insert(const ItemType & Item);
       void Remove(ItemType & Item);
-      void upNext(int Item);
+      void upNext(ItemType Item);
    private:
       void Advance(int & Index);
       QueueArrayType Info;

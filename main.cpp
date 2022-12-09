@@ -68,12 +68,12 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
     // while the queue is not empty
     while(!queue.Empty()){
         //set currentVertex equal to the front vertex
-        queue.upNext(currentVertex);
+        queue.upNext(startVertex);
         // dequeue the front vertex
         queue.Remove(startVertex);
 
         // print the front vertex
-        std::cout << vertexNames[currentVertex] << " ";
+        std::cout << vertexNames[currentVertex] << "'s ";
 
         // for each vertex adjacent to the front vertex
         for(int i = 0; i < ROWS; i++){

@@ -89,9 +89,9 @@ void ArrQueClass::Remove(ItemType & Item)
       }
    }
 
-void ArrQueClass::upNext(int Item) {
+void ArrQueClass::upNext(ItemType Item) {
       if (Count == 0) {
-         cerr << "ERROR: Cannot remove -- queue is empty" << endl;
+         cerr << "ERROR: NO NEXT-- queue is empty" << endl;
          exit(1);
       }
       else {
