@@ -1,6 +1,6 @@
 
 // Author: Aiden Buterbaugh
-// Date: 11/23/2021
+// Date: 12/7/2022
 //
 // This program does a breadth-first search of a graph.
 
@@ -11,11 +11,17 @@
 #define ROWS 7
 #define COLS 7
 
+// GIVEN: A user input
+// TASK: To check if the user input is valid and output the corresponding vertex
+// RETURN: Nothing
 void userChoice(int userInput);
+
+// GIVEN: A graph, vertex names, and a starting vertex
+// TASK: To perform a breadth first search of the graph
+// RETURN: Nothing
 void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemType startVertex);
 
 int main(void){
-    ArrQueClass queue;
     int userInput = 0;
 
     // create a 2D graph of names and their connections
@@ -31,26 +37,10 @@ int main(void){
 
     std::string vertexNames[7] = {"joe", "eva", "taj", "chen", "lily", "jun", "ken"};
 
-
+    // get and store user input
     std::cout << "Enter a number between 0 and 6 to start the breadth first search: \n";
     std::cout << "0 = joe, 1 = eva, 2 = taj, 3 = chen, 4 = lily, 5 = jun, 6 = ken\n";
-    std::cin >> userInput;
-
-
-    // for (int i = 0; i < 6; i++) {
-    //     queue.Insert(userInput);
-    //     cin >> userInput;
-    // }
-
-    // while (!queue.Empty()) {
-        
-       
-    //     ItemType temp = queue.Remove(userInput);
-
-    //     std::cout << temp << std::endl;
-    // }
-
-
+    std::cin >> userInput; 
 
 
 userChoice(userInput);
@@ -109,6 +99,8 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
 } 
 
 void userChoice(int userInput) {
+
+    // switch case for every possible user entry
     switch (userInput) {
         case 0:
             std::cout << "Searching for nodes adjacent to joe and calculating distance...\n";
