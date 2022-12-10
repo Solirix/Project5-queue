@@ -37,25 +37,25 @@ int main(void){
     std::cin >> userInput;
 
 
-    for (int i = 0; i < 6; i++) {
-        queue.Insert(userInput);
-        cin >> userInput;
-    }
+    // for (int i = 0; i < 6; i++) {
+    //     queue.Insert(userInput);
+    //     cin >> userInput;
+    // }
 
-    while (!queue.Empty()) {
+    // while (!queue.Empty()) {
         
        
-        queue.Remove(userInput);
+    //     ItemType temp = queue.Remove(userInput);
 
-     
-    }
-
-
+    //     std::cout << temp << std::endl;
+    // }
 
 
-// userChoice(userInput);
 
-// breadthFirstSearch(graph, vertexNames, userInput);
+
+userChoice(userInput);
+
+breadthFirstSearch(graph, vertexNames, userInput);
 
 
 
@@ -76,19 +76,19 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
     queue.Insert(startVertex);
 
     //startVertex has a distance of 0 from iteslf
-    distances[currentVertex] = 0;
+    distances[startVertex] = 0;
 
     // mark the start vertex as visited
-    visited[currentVertex] = true;
+    visited[startVertex] = true;
+
+    //output first Vertex
+    std::cout << "The distance from " << vertexNames[startVertex] << " to itself is "<< distances[startVertex] << " of course " << std::endl;
 
     // while the queue is not empty
     while(!queue.Empty()){
-        //set currentVertex equal to the front vertex
-        queue.upNext(startVertex);
-        // dequeue the front vertex
-        queue.Remove(startVertex);
-
         
+        // dequeue the front vertex
+        currentVertex = queue.Remove(); 
 
         // for each vertex adjacent to the front vertex
         for(int i = 0; i < ROWS; i++){
@@ -102,12 +102,7 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
 
                 // distance between the new vertex and the start vertex
                 distances[i] = distances[currentVertex] + 1; 
-                std::cout << "Distance from " << vertexNames[startVertex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl;
-
-                // output vertices 2 away from the start vertex
-                if(distances[i] == 2){
-                    std::cout << vertexNames[i] << " is 2 away from " << vertexNames[startVertex] << std::endl;
-                }
+                std::cout << "Distance from " << vertexNames[startVertex] << " to " << vertexNames[i] << " is " << distances[i] << std::endl; 
             }
         }
     }

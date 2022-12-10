@@ -74,8 +74,9 @@ void ArrQueClass::Insert(const ItemType & Item)
    Task:   To remove the front item from the queue (the implicit object).
    Return: Item   The item removed from the queue.
 */
-void ArrQueClass::Remove(ItemType & Item)
+ItemType ArrQueClass::Remove()
    {
+   ItemType Item = 0;
    if (Count == 0)
       {
       cerr << "ERROR: Cannot remove -- queue is empty" << endl;
@@ -87,14 +88,6 @@ void ArrQueClass::Remove(ItemType & Item)
       Advance(Front);
       Count--;
       } 
+      return Item;
    }
 
-void ArrQueClass::upNext(ItemType Item) {
-      if (Count == 0) {
-         cerr << "ERROR: NO NEXT-- queue is empty" << endl;
-         exit(1);
-      }
-      else {
-         Item = Info[Front];
-      }
-}

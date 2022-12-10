@@ -8,21 +8,20 @@
    ArrQueClass shown below which is a subclass of QueBaseClass.
 */
 
-#include "queue.hpp"
 
+#include "itemtype.hpp"
 
 const int QueueMax = 7;
 
 typedef ItemType QueueArrayType[QueueMax];
 
-class ArrQueClass: public QueBaseClass
+class ArrQueClass
    {
    public:
       ArrQueClass(void);
       bool Empty(void) const;
       void Insert(const ItemType & Item);
-      void Remove(ItemType & Item);
-      void upNext(ItemType Item);
+      ItemType Remove(); 
    private:
       void Advance(int & Index);
       QueueArrayType Info;
