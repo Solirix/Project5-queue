@@ -86,7 +86,7 @@ void ArrQueClass::Remove(ItemType & Item)
       Item = Info[Front];
       Advance(Front);
       Count--;
-      }
+      } 
    }
 
 void ArrQueClass::upNext(ItemType Item) {

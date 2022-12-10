@@ -20,4 +20,3 @@ class QueBaseClass
    };
 
 // The = 0; means there is no code; these are "pure virtual" functions.
-

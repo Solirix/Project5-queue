@@ -15,6 +15,7 @@ void userChoice(int userInput);
 void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemType startVertex);
 
 int main(void){
+    ArrQueClass queue;
     int userInput = 0;
 
     // create a 2D graph of names and their connections
@@ -36,18 +37,25 @@ int main(void){
     std::cin >> userInput;
 
 
-    // while (!queue.Empty()) {
+    for (int i = 0; i < 6; i++) {
+        queue.Insert(userInput);
+        cin >> userInput;
+    }
+
+    while (!queue.Empty()) {
         
-    //     queue.Insert(userInput);
-    //     queue.Remove(userInput); 
-    // }
+       
+        queue.Remove(userInput);
+
+     
+    }
 
 
 
 
-userChoice(userInput);
+// userChoice(userInput);
 
-breadthFirstSearch(graph, vertexNames, userInput);
+// breadthFirstSearch(graph, vertexNames, userInput);
 
 
 
@@ -61,12 +69,9 @@ void breadthFirstSearch(int graph[ROWS][COLS], std::string vertexNames[7], ItemT
     //array of distances between vertices
     int distances[ROWS] = {0, 0, 0, 0, 0, 0, 0};
     // create a visited array
-    bool visited[7] = {false}; 
+    bool visited[7] = {false, false, false, false, false, false, false}; 
 
-    
 
-    //set currentVertex equal to startVertex
-    currentVertex = startVertex;
     // enqueue the start vertex
     queue.Insert(startVertex);
 
